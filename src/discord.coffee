@@ -91,6 +91,9 @@ class DiscordAdapter extends Adapter
     return if message.author.id == @discord.user.id
     # skip messages from the bot itself
 
+    # Save the raw DiscordJS message for use
+    robot.discordJsMessage = message
+
     user = @robot.brain.userForId message.author.id
 
     user.name = message.author.username
